@@ -1,0 +1,34 @@
+<div class="detail-container bgcolor-111">
+    <div class="container">
+        {{#each result}}
+        <div class="row">
+            <div class="col-8">
+                <div class="ratio ratio-16x9 width-watch">
+                    <iframe src="https://www.youtube.com/embed/{{this.mov_trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-4 margin-center">
+                <p class="color-fff text-name">{{this.mov_name}}</p>
+                <p class="color-fff">Ngày ra mắt: {{this.mov_release}}</p>
+                <p class="color-fff">Thể loại: {{this.mov_genres}}</p>
+                <p class="color-fff">Thời lượng: {{this.mov_length}} phút</p>
+                <p class="color-fff">Đạo diễn: {{this.mov_directors}}</p>
+                <p class="color-fff">Diễn viên: {{this.mov_actors}}</p>
+                <p class="color-fff">Ngôn ngữ: {{this.mov_language}}</p>
+                <p class="color-fff">Độ tuổi: {{this.mov_age}}</p>
+            </div>
+        </div>
+        <div class="row px-5 padding-32">
+            <p class="card-desc color-fff">
+                Nội dung phim
+                <p class="text-break color-fff">{{this.mov_description}}</p>
+            </p>
+        </div>
+        <div class="row text-center">
+            <button class="pd-8_16 bg-btn_a">
+                <a class="style-btn_a style-bnt-a padding-0_45p" href="/showtimes?movie={{this.mov_id}}">Đặt vé</a>
+            </button>
+        </div>
+        {{/each}}
+    </div>
+</div>

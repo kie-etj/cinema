@@ -1,0 +1,32 @@
+<div class="choiceOption-container bgcolor-000 color-fff" style="padding: 1px 0">
+    {{#each result}}
+    <div style="margin: 16px 0">
+        <div class="container bgcolor-111 padding-32">
+            <div class="row text-left">
+                <div class="col-7 padding-0_32">
+                    <img src="{{this.mov_poster}}" alt="" class="border-basic" style="width: 100%; height: 350px">    
+                </div>
+                <div class="col-5">
+                    <span class="text-name">{{this.mov_name}}</span>
+                    <hr class="hr-bot">
+                    <h5>{{this.bra_name}}</h5>
+                    <hr class="hr-bot">
+                    <p>{{this.date}}</p>
+                    <hr class="hr-bot">
+                    <p>Số ghế còn lại: {{this.sho_available}}/100</p>
+                    <hr class="hr-bot">
+                </div>
+                <div class="col-12">
+                    <form class="form-controller padding-32" method="post" action="">
+                        <div class="text-end padding-0_32 text-center">
+                            <button class="pd-8_16 bg-btn_a" style="width:50%;">
+                                <a class="style-btn_a padding-0_45p" href="/tickets/seats?id={{this.sho_id}}">Đặt vé</a>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

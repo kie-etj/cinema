@@ -1,0 +1,198 @@
+<div class="aboutuser-container bgcolor-111 color-fff p-3">
+    <div class="container">
+        <h1 class="heading-title text-center">Thông tin tài khoản</h1>
+
+        <div id="liveAlertPlaceholder"></div>
+
+            <form action="/user-details-update" method="post" id="form-handler">
+                {{#each result}}
+                <div class="row">
+                    <div class="col-2">
+                        <label for="Email">Email:</label>
+                    </div>
+                    <div class="col-8 text-left">
+                        <input type="text" name="email" id="Email" class="input-user color-fff bgcolor-111" value="{{this.cus_email}}" disabled>
+                    </div>
+                    <div class="col-2 text-right">
+                        <span style="color: red;">Không thể thay đổi</span>
+                    </div>
+                    <hr class="hr-bot">
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="">Tên hiển thị:</label>
+                    </div>
+                    <div class="col-8 text-left">
+                        <input type="text" name="" class="input-user color-fff bgcolor-111" value="{{this.acc_username}}" disabled>
+                    </div>
+                    <div class="col-2 text-right">
+                        <span style="color: red;">Không thể thay đổi</span>
+                    </div>
+                    <hr class="hr-bot">
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="">Mật khẩu:</label>
+                    </div>
+                    <div class="col-8 text-left">
+                        <input type="password" name="pass" id="correct-pass" class="input-user color-fff bgcolor-111" value="{{this.acc_password}}" disabled>
+                    </div>
+                    <div class="col-2 text-right">
+                        <button type="button" class="btn-password" data-bs-toggle="modal" data-bs-target="#password-modal">Thay đổi</button>
+                    </div>
+                    <hr class="hr-bot">
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="name">Họ và tên:</label>
+                    </div>
+                    <div class="col-8 text-left">
+                        <input type="text" name="name" id="name" class="input-user color-fff bgcolor-111" value="{{this.cus_name}}">
+                    </div>
+                    <div class="col-2 text-right">
+                        <label for="name">Thay đổi</label>
+                    </div>
+                    <hr class="hr-bot">
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="date">Ngày sinh:</label>
+                    </div>
+                    <div class="col-8 text-left">
+                    <input type="date" name="dob" id="date" value="{{this.cus_dob}}" style="width:20%;">
+                    </div>
+                    <div class="col-2 text-right">
+                        <label for="date">Thay đổi</label>
+                    </div>
+                    <hr class="hr-bot">
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="address">Địa chỉ:</label>
+                    </div>
+                    <div class="col-8 text-left">
+                        <input type="text" name="address" id="address" class="input-user color-fff bgcolor-111" value="{{this.cus_address}}">
+                    </div>
+                    <div class="col-2 text-right">
+                        <label for="address">Thay đổi</label>
+                    </div>
+                    <hr class="hr-bot">
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="phone">Điện thoại:</label>
+                    </div>
+                    <div class="col-8 text-left">
+                        <input type="text" name="phone" id="phone" class="input-user color-fff bgcolor-111" value="{{this.cus_phone}}">
+                    </div>
+                    <div class="col-2 text-right">
+                        <label for="phone">Thay đổi</label>
+                    </div>
+                    <hr class="hr-bot">
+                </div>
+                <div class="row text-center btn-submit">
+                    <div class="col">
+                        <button id="style-btn_submit" class="style-btn_submit" type="button">Hoàn thành</button>
+                    </div>
+                </div>
+                {{/each}}
+            </form>
+        </div>
+    </div>
+</div>
+
+{{!-- Modal update password --}}
+<div class="modal fade" id="password-modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Đổi mật khẩu?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/user-password-update" method="post" id="form-update-pass">
+            <div class="row">
+                <div class="col-3">
+                    <label for="old-pass">Mật khẩu cũ</label>
+                </div>
+                <div class="col-9">
+                    <input type="text" id="old-pass">
+                </div>
+                <div class="col-3">
+                    <label for="">Mật khẩu mới</label>
+                </div>
+                <div class="col-9">
+                    <input type="text" name="newpass" id="new-pass">
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col message-error" style="color:red;"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-update-pass" type="button" class="btn btn-danger">Thay đổi mật khẩu</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Hủy thao tác</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+    // Handler update details
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    var alertTrigger = document.getElementById('style-btn_submit')
+    var formHandler = document.getElementById('form-handler')
+
+    function alert(message, type) {
+    var wrapper = document.createElement('div')
+    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+    alertPlaceholder.append(wrapper)
+    }
+
+    if (alertTrigger) {
+        alertTrigger.addEventListener('click', function () {
+            alert('Cập nhật thành công', 'success')
+        })
+
+        alertTrigger.onclick = function () {
+            setTimeout(function () {
+                formHandler.submit()
+            }, 2000)
+        }
+    }
+    // Handler update details
+
+    // Handler update password
+    var btnUpdatePass = document.getElementById('btn-update-pass')
+
+    btnUpdatePass.onclick = function () {
+        var UpdatePassForm = document.getElementById('form-update-pass')
+        var correctPass = document.getElementById('correct-pass')
+        var oldPassModal = document.getElementById('old-pass')
+        var newPassModal = document.getElementById('new-pass')
+        var message = document.querySelector('.message-error')
+
+        oldPassModal.onclick = function () {
+            message.innerHTML = ''
+        }
+
+        newPassModal.onclick = function () {
+            message.innerHTML = ''
+        }
+
+        if (correctPass.value != oldPassModal.value) {
+            message.innerHTML = 'Bạn nhập không đúng mật khẩu cũ!!!'
+        } else if (newPassModal.value == '') {
+            message.innerHTML = 'Bạn chưa nhập mật khẩu mới!!!'
+        } else {
+            UpdatePassForm.submit()
+        }
+
+        
+    }
+    // Handler update password
+</script>

@@ -1,0 +1,96 @@
+<div class="header-container">
+    <header class="header bgcolor-111">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="/" style="padding: 0;">
+                    <img src="/img/motphim.png" alt="" width="160" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 sub-header">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Trang chủ</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Phim
+                            </a>
+                            <ul class="dropdown-menu bg-subnav" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/movies">Phim đang chiếu</a></li>
+                                <li><hr class="dropdown-divider hr"></li>
+                                <li><a class="dropdown-item" href="/movies/coming-soon">Phim sắp chiếu</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/cinemas">Rạp chiếu phim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/showtimes">Suất chiếu</a>
+                        </li>
+                        <li class="nav-item not-logged-in">
+                            <a href="/login" class="nav-link">Đăng nhập</a>
+                        </li>
+                        <div class="nav-item dropdown logged-in">
+                            <a class="logged-in-title nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Xin chào
+                            </a>
+                            <ul class="dropdown-menu bg-subnav" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/user">Thông tin tài khoản</a></li>
+                                <li><hr class="dropdown-divider hr"></li>
+                                <li><a class="dropdown-item" href="/tickets/cart">Giỏ hàng của bạn</a></li>
+                                <li><a class="dropdown-item" href="/tickets">Vé đã đặt</a></li>
+                                <li><hr class="dropdown-divider hr"></li>
+                                <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                    <ul class="me-auto mb-2 mb-lg-0">
+                        <div class="form-option">
+                            <form action="" method="get">
+                                <nav class="navbar text-right">
+                                    <div class="container-fluid space-search">
+                                        <form>
+                                            <a id="send-search" class="d-none"></a>
+                                            <input id="search" class="form-control me-2 input-option" type="search" placeholder="Bạn muốn tìm..." aria-label="Search">
+                                            <button id="btn-search" class="btn btn-outline-success btn-option" type="button">Tìm kiếm</button>
+                                        </form>
+                                    </div>
+                                </nav>
+                            </form>
+                        </div>      
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>
+
+<script>
+    // Handler login
+    const notLogin = document.querySelector('.not-logged-in')
+    const login = document.querySelector('.logged-in')
+    const cookie = document.cookie
+    const user = cookie.split("=")
+    if (user[1] === undefined) {
+        login.classList.add('d-none')
+        notLogin.classList.remove('d-none')
+    } else {
+        login.classList.remove('d-none')
+        notLogin.classList.add('d-none')
+        const loginTitle = document.querySelector('.logged-in-title')
+        loginTitle.innerHTML = `Xin chào ${user[1].replaceAll("%20", " ")}!!!`
+    }
+    // Handler login
+
+    // Handler search
+    const searchText = document.getElementById('search')
+    const searchBtn = document.getElementById('btn-search')
+    const searchSend = document.getElementById('send-search')
+    searchBtn.onclick = function () {
+        searchSend.href = '/showtimes?q=' + searchText.value
+        searchSend.click()
+    }
+    // Handler Search
+</script>

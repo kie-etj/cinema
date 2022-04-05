@@ -1,0 +1,30 @@
+<div class="watchticket-container bgcolor-000">
+    <div class="container">
+        <h1 class="heading-title text-center color-fff">Vé của bạn</h1>
+        <div class="row list-ticket">
+        {{#each result}}
+            <div class="col-6 border-list_ticket bgcolor-111">
+                <p class="color-fff text-name" style="padding-top: 16px;">{{this.tic_id}}</p>
+                <hr class="hr-bot" style="width:100%; margin-left: -12px;">
+                <p class="color-fff">{{this.mov_name}}</p>
+                <hr class="hr-bot" style="width:100%; margin-left: -12px;">
+                <p class="color-fff">Tên rạp: {{this.bra_name}}</p>
+                <hr class="hr-bot" style="width:100%; margin-left: -12px;">
+                <p class="color-fff">Ngày chiếu: {{this.sho_date}}</p>
+                <hr class="hr-bot" style="width:100%; margin-left: -12px;">
+                <p class="color-fff">Ghế ngồi: <b style="color: #ef2f01">{{this.tic_seat}}</b></p>
+                <hr class="hr-bot" style="width:100%; margin-left: -12px;">
+                <p class="color-fff">Giá vé: {{this.tic_price}}</p>
+                <hr class="hr-bot" style="width:100%; margin-left: -12px;">
+                <p class="color-fff">Ngày đặt vé: {{this.tic_date}}</p>
+                <hr class="hr-bot" style="width:100%; margin-left: -12px;">
+                <p class="color-fff">Khách hàng: {{this.acc_email}}</p>
+                <hr class="hr-bot" style="width:100%; margin-left: -12px;">
+                <div class="text-center padding-32">
+                    <img src="/img/qrcode.png" width="250px" height="250px">
+                </div>
+            </div>
+        {{/each}}
+        </div>
+    </div>
+</div>

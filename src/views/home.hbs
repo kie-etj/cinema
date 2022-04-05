@@ -1,0 +1,40 @@
+{{> carousel}}
+
+<div class="product-container bgcolor-111 padding-48">
+    <div class="container">
+        <div class="heading-title color-fff heading-title_style">
+            Phim nổi bật
+        </div>
+        <div class="row">
+            {{#each result}}
+            <div class="col-6">
+                <div class="padding-32">
+                    <div class="img-product" style="background-image: url({{this.mov_poster}});">
+                        <div class="hover-img">
+                            <h5 class="text-name padding-16">{{this.mov_name}}</h5>
+                            <p>{{this.mov_length}} phút</p>
+                            <p>{{this.mov_genres}}</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="padding-16">
+                                        <button class="pd-8_16 bg-btn_a">
+                                            <a href="/movies/{{this.mov_id}}" class="style-btn_a">Xem chi tiết</a>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <div class="padding-16">
+                                        <button class="pd-8_16 bg-btn_a">
+                                            <a href="/showtimes?movie={{this.mov_id}}" class="style-btn_a">Đặt vé</a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

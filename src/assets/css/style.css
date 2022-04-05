@@ -1,0 +1,464 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bgcolor-000{
+    background-color: #000 !important;
+}
+.bgcolor-111{
+    background-color: #111 !important;
+}
+.bgcolor-#ef2f01{
+    background-color: #ef2f01 !important;
+}
+.color-fff{
+    color: #fff !important;
+}
+.btn-submit{
+    padding: 24px 0;
+}
+.style-btn_submit{
+    transition: all 0.25s ease-in;
+}
+.style-btn_submit:hover{
+    background-color: #ef2f01;
+    color: #111;
+}
+.padding-48{
+    padding: 48px 0 !important;
+}
+.padding-32{
+    padding: 32px 0 !important;
+}
+.padding-0_32{
+    padding: 0 32px;
+}
+.padding-16{
+    padding: 16px 0;
+}
+.padding-0_16{
+    padding: 0 16px;
+}
+.padding-0_45p{
+    padding: 10px 45%;
+}
+.pd-8_16{
+    padding: 8px 16px;
+}
+.margin-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.text-name{
+    font-size: 24px;
+    font-weight: 500;
+}
+.heading-title{
+    font-size: 36px;
+    padding: 24px 0;
+}
+.style-btn_submit{
+    padding: 8px 12px;
+    border: 1px solid #ef2f01;
+    background-color: #111;
+    color: #fff;
+    font-weight: 500;
+}
+a{
+    font-weight: 400;
+    color: #fff;
+    transition:all 0.25s ease-in;
+}
+a:hover{
+    color: #ef2f01;
+}
+button:hover a{
+    color: #000 !important;
+}
+.border-basic{
+    border: 1px solid #ef2f01;
+}
+hr{
+    width: 100% !important;
+    height: 2px !important;
+    background-color: #ef2f01;
+}
+hr.hr-bot{
+    width: calc(100% - 24px) !important;
+    margin: 28px 0;
+    background-color: #ef2f01;
+}
+.style-btn_a{
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+.bg-btn_a{
+    color: #000;
+    background-color: #111;
+    border: 1px solid #ef2f01;
+}
+.bg-btn_a:hover{
+    border: 1px solid #ef2f01;
+    background-color: #ef2f01;
+}
+
+    /* START HEADER */
+.header-container{
+    width: 100%;
+}
+.header a{
+    color: #fff !important;
+    padding: 8px 28px;
+}
+.bg-subnav{
+    background-color: #111;
+}
+.bg-subnav li a:hover{
+    color: #000 !important;
+}
+.nav-item{
+    font-size: 19px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-right: 36px;
+}
+.nav-item:hover a{
+    color: #ef2f01 !important;
+}
+.hr{
+    color: #fff !important;
+}
+.form-search{
+    border: 1px solid #ef2f01;
+    width: 250px;
+}
+.btn-search{
+    font-weight: 500;
+    border: 1px solid #ef2f01;
+    color: #fff;
+    padding: 2px 4px;
+}
+.btn-search:hover{
+    color: #111;
+    background-color: #ef2f01;
+}
+.input-option{
+    width: 250px;
+}
+.space-search{
+    justify-content: center !important;
+}
+.btn-option{
+    border: 1px solid #ef2f01;
+    color: #fff;
+}
+.btn-option:hover{
+    border: 1px solid rgb(32, 32, 32);
+    background-color: #ef2f01;
+    color: #111;
+    font-weight: 600;
+}
+    /* END HEADER */
+
+    /* START CAROUSE */
+.carouse-img{
+    width: 1200px;
+    height: 600px;
+}
+.carousel-control-prev {
+    left: 0;
+}
+.carousel-control-next{
+    right: 0;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    width: 80px;
+    height: 80px;
+}
+    /* END CAROUSE */
+
+    /* START PRODUCT */
+.img-product{
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 98%;
+    height: 350px;
+    position: relative;
+    transition: transform 0.2s;
+}
+.img-product:hover{
+    transform: scale(1.1);
+}
+.hover-img{
+    padding: 0px 24px;
+    width: 100%;
+    background-color: rgba(239, 47, 1, 0.7);
+    color: #fff;
+    text-shadow: 0 0 3px #000;
+    position: absolute;
+    bottom: 0;
+    display: none;
+    
+}
+.img-product:hover .hover-img { 
+    display: block;
+}
+
+    /* END PRODUCT */
+
+    /*BUY TICKET*/
+.form-container{
+    padding-bottom: 32px;
+}
+.row-name{
+    line-height: 24px;
+    font-size: 20px;
+    padding-top: 12px;
+    margin-bottom: 16px;
+}
+.col-name{
+    padding-top: 12px;
+    justify-content: space-between;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+ .btn-select{
+    width: 80px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px 0px;
+    margin-right: 16px;
+    border: 2px solid #ef2f01;
+    background-color: #111;
+    color: #fff;
+}
+
+.btn-select:hover{
+    border: none;
+    color: #fff;
+    background-color: #ef2f01;
+} 
+.btn-disabled-item{
+    background-color: rgb(111, 111, 111);
+    color: #111;
+    opacity: 0.7;
+    pointer-events: none;
+}
+.btn-selected-item{
+    background-color: #ef2f01;
+    color : #111;
+}
+    /*END BUY TICKET */
+
+    /*START LOGIN */
+.login-container{
+    background: #111;
+}
+      
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+}
+      
+.btn-google {
+    color: white !important;
+    background-color: #ea4335;
+}
+      
+.btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
+}
+    /*END LOGIN */
+
+     /*START REGISTER*/
+.register-container{
+    padding: 16px 0;
+}
+.form-register{
+    width: 50%;
+    color: #fff;
+    padding: 16px 32px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-input{
+    background-color: #fff !important;
+    width: 100%;
+}
+    /*END REGISTER*/
+
+    /* STAR DETAIL */
+.detail-container{
+    padding: 36px 0;
+}
+.width-img{
+    width: 100%;
+    height: 400px; 
+}
+.style-bnt-a{
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+    /* END DETAIL */
+
+/* STAR FOOTER */
+.pd-footer{
+    width: 100%;
+    font-size: 20px;
+    padding: 0 16px;
+    color:#ef2f01;
+}
+.space-title{
+    margin-left: 30%;
+}
+.icon{
+    padding-left: 4px;
+}
+.space-icon{
+    margin-right: 30%;
+}
+.desc{
+    font-size: 16px;
+}
+.text-reset{
+    text-decoration: none;
+}
+/*END FOOTER*/
+
+    /* START CART */
+.cart-container{
+    background-color: #111;
+    padding: 32px 0px 32px 0px;
+}
+.bg-cart{
+    background: #111;
+    padding-bottom: 16px;
+}
+.heading-h1{
+    font-size: 40px;
+    color: #ef2f01;
+    text-align: center;
+    padding-bottom: 16px;
+}
+.form-table tr, th, td{
+    text-align: center;
+    color: #fff !important;
+    border: 2px solid #ef2f01 !important;
+}
+.btn-payment{
+    padding: 2px 2px;
+    font-weight: 600;
+    background-color: #fff;
+}
+.btn-delete{
+    padding: 2px 4px;
+    font-weight: 600;
+    background-color: #fff;
+}
+    /* END CART */
+
+    /* STRAR WATCHTIKET */
+.watchticket-container{
+    padding-bottom: 32px;
+}
+
+.list-ticket{
+    justify-content: space-around;
+}
+.border-list_ticket{
+    width: 40%;
+    border: 2px solid #ef2f01;
+    margin-bottom: 32px;
+}
+
+.btn-return{
+    text-align: center;
+    padding: 16px 0 32px 0;
+}
+    /* END WATCHTICKET */
+
+    /* START CINEMA */
+
+.cinema-container{
+    padding-bottom: 48px;
+}
+
+.desc-place{
+    margin-top: 48px;
+    height: 160px;
+    line-height: 160px;
+    font-size: 28px;
+    background-color: #fff;
+    border-radius: 10%/50%;
+    position: relative;
+}
+.address-hover {
+    opacity: 0;
+    text-decoration: none;
+    width: 0%;
+    border-radius: 10%/50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 100%;
+    transition: animation 1.5s;
+    transition: width 1.5s;
+}
+@keyframes add {
+    0% {opacity: 0}
+    25% {opacity: 0}
+    100% {opacity: 1}
+}
+.desc-place:hover .address-hover{
+    opacity: 1;
+    width: 100%;
+    color: #fff;
+    background-color: #ef2f01;
+    animation: add 1.5s linear;
+}
+    /* END CINEMA */
+
+    /* START ABOUT USER */
+.aboutuser-container{
+    padding-bottom: 32px;
+}
+.input-user{
+    width: 70%;
+    border: none;
+    
+}
+.btn-password{
+    border: none;
+    outline: none;
+    background-color: #111;
+    color: #fff;
+}
+.hover-lable, .btn-password{
+    position: relative;
+    transition: transform 0.25s;
+    
+}
+.hover-lable:hover, div.text-right label:hover, .btn-password:hover{
+    transform: scale(0.9);
+    color: #ef2f01;
+    cursor: pointer;
+}
+
+    /* END ABOUT USER */

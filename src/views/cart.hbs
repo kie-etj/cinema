@@ -1,0 +1,124 @@
+<div class="cart-container">
+  <div class="container bg-cart">
+    <h1 class="heading-h1">Giỏ hàng</h1>
+    <table class="table form-table">
+      <thead>
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">Tên phim</th>
+          <th scope="col">Tên rạp</th>
+          <th scope="col">Ngày chiếu</th>
+          <th scope="col">Vị trí ghế</th>
+          <th scope="col">Giá vé</th>
+          <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each result}}
+          <tr>
+            <th scope="row">{{sum @index 1}}</th>
+            <td>{{this.mov_name}}</td>
+            <td>{{this.bra_name}}</td>
+            <td>{{this.date}}</td>
+            <td>{{this.tic_seat}}</td>
+            <td class="price-ticket">{{this.tic_price}}</td>
+            <td>
+                <button type="button" class="value-id btn-delete" data-bs-toggle="modal" data-bs-id={{this.tic_id}} data-bs-target="#delete-modal">Xóa</button>
+            </td>
+          </tr>
+        {{/each}}
+        <tr>
+          <td colspan="5" style="text-align: center;">Tổng tiền</td>
+          <td colspan="2" class="total-price-ticket" style="text-align: center;"></td>  
+        </tr>
+        <tr>
+          <td colspan="8"><button type="button" class="btn-payment" data-bs-toggle="modal" data-bs-target="#payment-modal">Thanh toán</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal delete -->
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xóa vé?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn muốn xóa khỏi giỏ hàng
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-modal" type="button" class="btn btn-danger">Xóa khỏi giỏ hàng</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Hủy thao tác</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Modal payment --}}
+<div class="modal fade" id="payment-modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Thanh toán</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn muốn thanh toán các vé trong giỏ hàng
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-success" href="/tickets/payment">Thanh toán ngay!!!</a>
+
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Hủy thao tác</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Hidden delete a element --}}
+<a class="delete-click d-none"></a>
+
+<script>
+  // Handler for sum money
+  const priceTickets = document.querySelectorAll('.price-ticket')
+  const totalPriceTickets = document.querySelector('.total-price-ticket')
+  const btnPayment = document.querySelector('.btn-payment')
+
+  var total = 0
+  priceTickets.forEach(function (item) {
+    total += parseInt(item.innerHTML)
+  })
+
+  if (total == 0) {
+    // btnPayment.setAttribute('disabled', '')
+    btnPayment.classList.add('btn-disabled-item')
+  }
+  totalPriceTickets.innerHTML = total + ' vnđ'
+  // Handler for sum money
+
+
+  // Handler for delete button
+  var id
+  var deleteModal = document.getElementById('delete-modal')
+  var btnDeleteModal = document.getElementById('btn-delete-modal')
+  var deleteConfirm = document.querySelector('.delete-click')
+
+  deleteModal.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    id = button.getAttribute('data-bs-id')
+  })
+
+  btnDeleteModal.onclick = function () {
+    deleteConfirm.href = '/tickets/delete-cart?delete=' + id
+    deleteConfirm.click()
+  }
+  // Handler for delete button
+
+
+
+</script>
