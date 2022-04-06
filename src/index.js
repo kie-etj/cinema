@@ -2,13 +2,9 @@ const path = require('path')
 const express = require('express')
 const { engine } = require ('express-handlebars')
 const cookieParser = require('cookie-parser')
-// const session = require('express-session')
 
 const route = require('./routes')
 const db = require('./db')
-
-// Connect to DB
-// db.connect()
 
 const app = express()
 const port = 3000
@@ -16,14 +12,6 @@ const port = 3000
 app.use(express.static(path.join(__dirname, 'assets')))
 
 app.use(cookieParser())
-
-// app.set('trust proxy', 1)
-// app.use(session({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: { secure: true }
-// }))
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
